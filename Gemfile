@@ -7,6 +7,8 @@ gem 'rails', '4.1.0'
 
 # gem 'sqlite3'
 
+gem 'bootstrap-sass'
+
 group :production do
   gem 'pg'
   gem 'rails_12factor'
