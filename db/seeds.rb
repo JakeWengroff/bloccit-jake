@@ -16,7 +16,20 @@
      body: Faker::Lorem.paragraph
    )
  end
+
+ Post.create!(
+    title:  "Bloc is awesome!",
+    body:   "Because it has great mentors!"
+   )
+
+
+ Comment.create!(
+    body:  "Tell me why"
+   )
  
- puts "Seed finished"
- puts "#{Post.count} posts created"
- puts "#{Comment.count} comments created"
+
+puts "Seed finished"
+puts "#{Post.count} posts created"
+puts "#{Comment.count} comments created"
+
+
