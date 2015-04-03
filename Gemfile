@@ -9,6 +9,8 @@ gem 'rails', '4.1.0'
 
 gem 'bootstrap-sass'
 
+gem 'pry-rails'
+
 group :production do
   gem 'pg'
   gem 'rails_12factor'
@@ -31,6 +33,9 @@ gem 'coffee-rails', '~> 4.0.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+
+gem 'faker'
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
