@@ -27,6 +27,7 @@
     body:  "Tell me why"
    )
  
+ 
 
 puts "Seed finished"
 puts "#{Post.count} posts created"
