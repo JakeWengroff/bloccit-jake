@@ -4,3 +4,4 @@
   <%= link_to "Delete", question_path(@question), method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure?' } %>
 
 <p><%= @question.body %></p>
+<p>Resolved: <%= @question.resolved %><p>
