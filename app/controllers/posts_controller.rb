@@ -1,7 +1,8 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all
-      authorize @posts
+    # @posts = Post.all
+    @posts = policy_scope(Post)
+    authorize @posts
   end
 
   def show
@@ -27,7 +28,8 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
-      authorize @post
+    puts @post, current_user.role
+    authorize @post
   end
 
   def update

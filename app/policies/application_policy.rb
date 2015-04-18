@@ -1,5 +1,5 @@
 class ApplicationPolicy
-  attr_reader :user, :record
+  attr_reader :user, :record, :scope
 
   def initialize(user, record)
     @user = user
@@ -15,7 +15,6 @@ class ApplicationPolicy
   end
 
   def create?
-    # false
     user.present?
   end
 
@@ -24,7 +23,6 @@ class ApplicationPolicy
   end
 
   def update?
-    # false
     user.present? && (record.user == user || user.admin?)
   end
 
@@ -33,12 +31,10 @@ class ApplicationPolicy
   end
 
   def destroy?
-    # false
     update?
   end
 
   def scope
-    # Pundit.policy_scope!(user, record.class)
     record.class
   end
 
@@ -46,6 +42,7 @@ class ApplicationPolicy
     attr_reader :user, :scope
 
     def initialize(user, scope)
+      raise Pundit::NotAuthorizedError, "You must be logged in to see Posts." unless user
       @user = user
       @scope = scope
     end
