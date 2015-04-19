@@ -15,7 +15,6 @@ class ApplicationPolicy
   end
 
   def create?
-    # false
     user.present?
   end
 
@@ -24,7 +23,6 @@ class ApplicationPolicy
   end
 
   def update?
-    # false
     user.present? && (record.user == user || user.admin?)
   end
 
@@ -33,12 +31,10 @@ class ApplicationPolicy
   end
 
   def destroy?
-    # false
     update?
   end
 
   def scope
-    # Pundit.policy_scope!(user, record.class)
     record.class
   end
 

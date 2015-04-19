@@ -1,4 +1,12 @@
 Bloccit::Application.routes.draw do
+  get 'topics/index'
+
+  get 'topics/new'
+
+  get 'topics/show'
+
+  get 'topics/edit'
+
   devise_for :users
   # get 'questions/index'
 
@@ -24,7 +32,11 @@ Bloccit::Application.routes.draw do
 
   # get 'posts/edit'
 
-  resources :posts
+  # resources :posts
+
+  resources :topics do
+    resources :posts, except: [:index]
+  end
 
   get 'welcome/contact'
 
