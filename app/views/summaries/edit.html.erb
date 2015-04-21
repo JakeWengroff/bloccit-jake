@@ -1,0 +1,32 @@
+<h1>Edit Summary</h1>
+ 
+ <div class="row">
+   <div class="col-md-4">
+     <p>Guidelines for Summaries:</p>
+     <ul>
+       <li>The precise is nice.</li>
+       <li>The specific is terrific.</li>
+       <li>Remember those who wish to use TL;DR.</li>
+     </ul>
+   </div>
+   <div class="col-md-8">
+     <%= form_for @topic do |f| %>
+       <div class="form-group">
+         <%= f.label :name %>
+         <%= f.text_field :name, class: 'form-control', placeholder: "Enter Summary Title." %>
+       </div>
+       <div class="form-group">
+         <%= f.label :description %>
+         <%= f.text_area :description, rows: 8, class: 'form-control', placeholder: "Enter Summary." %>
+       </div>
+       <div class="form-group">
+         <%= f.label :public, class: 'checkbox' do %>
+           <%= f.check_box :public %> Public topic
+         <% end %>
+       </div>
+       <%= f.submit "Save", class: 'btn btn-success' %>
+     <% end %>
+   </div>
+ </div>
+ </div>
+ 

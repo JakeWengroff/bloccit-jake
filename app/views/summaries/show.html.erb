@@ -1,0 +1,29 @@
+ <h1><%= @summary.name %></h1>
+ 
+ <% if policy(@summary).update? %>
+   <%= link_to "Edit Summary", edit_topic_post_summary_path, class: 'btn btn-success' %>
+ <% end %>
+ 
+ <div class="row">
+   <div class="col-md-8">
+     <p class="lead"><%= @summary.description %></p>
+     <% @summaries.each do |summary| %>
+       <div class="media">
+         <div class="media-body">
+           <h4 class="media-heading">
+             <%= link_to summary.title, [@summary, post] %>
+           </h4>
+              <small>
+                submitted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.name unless post.user.nil? %><br>
+                <%= post.comments.count %> Comments
+              </small>
+         </div>
+       </div>
+     <% end %>
+   </div>
+   <div class="col-md-4">
+     <% if policy(Summary.new).create? %>
+       <%= link_to "New Summary", new_topic_post_summary_path(@summary), class: 'btn btn-success' %>
+     <% end %>
+   </div>
+ </div>
