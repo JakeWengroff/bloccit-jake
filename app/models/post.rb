@@ -12,6 +12,7 @@ class Post < ActiveRecord::Base
   end
 
 
+
   has_many :comments
   belongs_to :user
   belongs_to :topic
@@ -24,6 +25,24 @@ class Post < ActiveRecord::Base
   validates :topic, presence: true
   validates :user, presence: true
 
+  def markdown_title
+    render_as_markdown(self.title)
+  end
+
+  def markdown_body
+    render_as_markdown(self.body)
+  end
+
+  private
+  
+  def render_as_markdown(markdown)
+    renderer = Redcarpet::Render::HTML.new
+    extensions = {fenced_code_blocks: true}
+    redcarpet = Redcarpet::Markdown.new(renderer, extensions)
+    (redcarpet.render markdown).html_safe
+  end
+
+  
 
 end
   
