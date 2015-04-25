@@ -17,6 +17,8 @@ gem 'figaro', '1.0'
 
 gem 'pundit'
 
+gem 'redcarpet'
+
 group :production do
   gem 'pg'
   gem 'rails_12factor'

@@ -10,7 +10,7 @@
    user.skip_confirmation!
    user.save!
  end
- users = User.all
+ users = User.all 
  
  # Note: by calling `User.new` instead of `create`,
  # we create an instance of User which isn't immediately saved to the database.
@@ -23,7 +23,7 @@
 
  # Create Topics
  15.times do
-   Topic.create!(
+   topic = Topic.create!(
      name:         Faker::Lorem.sentence,
      description:  Faker::Lorem.paragraph
    )
@@ -33,7 +33,7 @@
 
 # Create Posts
  50.times do
-   Post.create!(
+   post = Post.create!(
      user:   users.sample,
      topic:  topics.sample,
      title:  Faker::Lorem.sentence,
@@ -41,25 +41,26 @@
    )
  end
  posts = Post.all
- 
 
 
  # Create Comments
  100.times do
    Comment.create!(
-        # user: users.sample,   # we have not yet associated Users with Comments
      post: posts.sample,
      body: Faker::Lorem.paragraph
    )
  end
 
  Post.create!(
-    title:  "Bloc is awesome!",
+    user:   users.sample,
+    topic:  topics.sample,
+    title:  "Bloc is adminwesome!",
     body:   "Because it has great mentors!"
    )
 
 
  Comment.create!(
+    post:  posts.sample,
     body:  "Tell me why"
    )
  
@@ -102,6 +103,8 @@
 
 
 puts "Seed finished"
+puts "#{User.count} users created"
+puts "#{Topic.count} topics created"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
 
