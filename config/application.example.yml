@@ -1,2 +1,9 @@
-SENDGRID_PASSWORD:
-SENDGRID_USERNAME: 
+SENDGRID_PASSWORD: oxyctyj3
+SENDGRID_USERNAME: app35850229@heroku.com
+DEVISE_SECRET_KEY: 
+AWS_ACCESS_KEY_ID: AKIAJVDRBSK46UMUVXPA
+AWS_SECRET_ACCESS_KEY: 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
+development:
+  AWS_BUCKET: wpb-pgh-bloccit-development
+production:
+  AWS_BUCKET: wpb-pgh-bloccit-production

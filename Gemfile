@@ -19,6 +19,12 @@ gem 'pundit'
 
 gem 'redcarpet'
 
+gem 'carrierwave'
+
+gem 'mini_magick'
+
+gem 'fog', '1.24'
+
 group :production do
   gem 'pg'
   gem 'rails_12factor'
