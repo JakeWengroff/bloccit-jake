@@ -1,11 +1,10 @@
 CarrierWave.configure do |config|
   config.fog_credentials = {
     provider:               'AWS',
-    aws_access_key_id:      'AKIAJVDRBSK46UMUVXPA',
-    aws_secret_access_key:  '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',
-    region:                 sa-east-1 
+    aws_access_key_id:      ENV['AWS_ACCESS_KEY_ID'],
+    aws_secret_access_key:  ENV['AWS_SECRET_ACCESS_KEY']
   }
-  config.fog_directory  = 'wpb-pgh-bloccit-development'
+  config.fog_directory  = ENV['AWS_BUCKET']
   config.fog_public     = true
 end
  
