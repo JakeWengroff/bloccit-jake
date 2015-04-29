@@ -18,6 +18,8 @@ class Post < ActiveRecord::Base
   belongs_to :topic
   has_one :summary
 
+  mount_uploader :avatar, AvatarUploader
+
   # default_scope { order('created_at DESC') }
 
   validates :title, length: { minimum: 5 }, presence: true
