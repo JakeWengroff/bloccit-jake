@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
-  # def index
-  #   @posts = Post.all
-  #     authorize @posts
-  # end
+  def index
+    @posts = Post.paginate(page: params[:page])
+    authorize @posts
+  end
 
   def show
     @topic = Topic.find(params[:topic_id])

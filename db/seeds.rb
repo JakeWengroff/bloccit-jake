@@ -22,7 +22,7 @@
 
 
  # Create Topics
- 15.times do
+ 100.times do
    topic = Topic.create!(
      name:         Faker::Lorem.sentence,
      description:  Faker::Lorem.paragraph
@@ -32,7 +32,7 @@
 
 
 # Create Posts
- 50.times do
+ 10000.times do
    post = Post.create!(
      user:   users.sample,
      topic:  topics.sample,
