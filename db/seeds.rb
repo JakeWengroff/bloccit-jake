@@ -47,6 +47,7 @@
  100.times do
    Comment.create!(
      post: posts.sample,
+     user: users.sample,
      body: Faker::Lorem.paragraph
    )
  end
@@ -61,15 +62,10 @@
 
  Comment.create!(
     post:  posts.sample,
+    user:  users.sample,
     body:  "Tell me why"
    )
  
-  # user = User.first
-  # user.skip_reconfirmation!
-  # user.update_attributes!(
-  #  email: 'jake.wengroff@gmail.com',
-  #  password: 'Edelman97'
-  # )
 
  # Create an admin user
  admin = User.new(
