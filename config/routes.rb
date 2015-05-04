@@ -35,11 +35,13 @@ Bloccit::Application.routes.draw do
 
   # resources :posts
 
-  resources :topics  do
-    resources :posts, except: [:index] do
-        resources :comments, only: [:create, :destroy]  
-    end
-  end
+   resources :topics do
+     resources :posts, except: [:index]
+   end
+ 
+   resources :posts, only: [] do
+     resources :comments, only: [:create, :destroy]
+   end
 
   get 'welcome/contact'
 
