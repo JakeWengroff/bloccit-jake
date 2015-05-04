@@ -44,7 +44,7 @@
 
 
  # Create Comments
- 100.times do
+ 10000.times do
    Comment.create!(
      post: posts.sample,
      user: users.sample,
