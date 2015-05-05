@@ -26,7 +26,7 @@
               <%= will_paginate @posts %>
    </div>
    <div class="col-md-4">
-     <% if policy(Post.new).create? %>
+     <% if policy(Comment.new).create? %>
        <%= link_to "New Post", new_topic_post_path(@topic), class: 'btn btn-success' %>
      <% end %>
 
