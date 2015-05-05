@@ -37,6 +37,9 @@ group :development do
   gem "rails-erd"
 end
 
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0'
+end
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
