@@ -10,6 +10,7 @@ class Post < ActiveRecord::Base
 
   has_many :comments, dependent: :destroy
   has_many :votes, dependent: :destroy
+  has_many :favorites, dependent: :destroy
   belongs_to :user
   belongs_to :topic
   has_one :summary
@@ -20,9 +21,9 @@ class Post < ActiveRecord::Base
     user.votes.create(value: 1, post: self)
   end
 
-  def save_with_intial_vote
-    user.post.votes.create(value: 1, post: self)
-  end
+  # def save_with_intial_vote
+  #   user.post.votes.create(value: 1, post: self)
+  # end
 
   def up_votes
     votes.where(value: 1).count
