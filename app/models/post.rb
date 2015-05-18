@@ -8,6 +8,8 @@ class Post < ActiveRecord::Base
     order('rank desc')
   end
 
+  scope :visible_to, -> (user) { user ? all : joins(:topic).where('topics.public' => true) }
+
   has_many :comments, dependent: :destroy
   has_many :votes, dependent: :destroy
   has_many :favorites, dependent: :destroy
