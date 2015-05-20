@@ -7,6 +7,12 @@ gem 'rails', '4.1.0'
 
 # gem 'sqlite3'
 
+gem 'newrelic_rpm'
+
+gem 'puma', group: :production
+
+gem 'thin', group: :development
+
 gem 'bootstrap-sass'
 
 gem 'pry-rails'
