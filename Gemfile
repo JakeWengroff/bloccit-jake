@@ -9,10 +9,6 @@ gem 'rails', '4.1.0'
 
 gem 'newrelic_rpm'
 
-gem 'puma', group: :production
-
-gem 'thin', group: :development
-
 gem 'bootstrap-sass'
 
 gem 'pry-rails'
@@ -36,18 +32,25 @@ gem 'will_paginate', '~> 3.0.5'
 group :production do
   gem 'pg'
   gem 'rails_12factor'
+  gem 'puma'
 end
 
 group :development do
+  gem 'spring'
   gem 'sqlite3'
   gem "rails-erd"
+  gem 'thin'
 end
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
 end
 
-gem 'capybara',    group: :test
+group :test do
+  gem 'capybara'
+  gem 'factory_girl_rails', '~> 4.0'
+end
+
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
@@ -71,7 +74,6 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-gem 'spring',        group: :development
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
