@@ -1,14 +1,12 @@
 require 'rails_helper'
 
 describe User do
-  
-  include TestFactories
 
   describe "#favorited(post)" do
 
     before do 
-      @user = authenticated_user
-      @post = associated_post
+      @user = create(:user)
+      @post = create(:post)
     end
 
     it "returns `nil` if the user has not favorited the post" do
