@@ -4,6 +4,8 @@ require 'rails_helper'
  
    describe "after_create" do
  
+    before { Post.delete_all }
+    before { User.delete_all }
     before { Comment.delete_all }
 
      before do
@@ -20,14 +22,11 @@ require 'rails_helper'
        @user.favorites.where(post: @post).create
  
        allow( FavoriteMailer )
-         .to receive(:new_comment)
-         .with(@user, @post, @comment)
-         .and_return( double(deliver_now: true) )
+        .to receive(:new_comment)
+        .with(@user, @post, @comment)
+        .and_return( double(deliver: true) )
 
-         expect( FavoriteMailer )
-           .to receive(:new_comment)
- 
-       @comment.save
+        @comment.save
      end
  
      it "does not send emails to users who haven't" do
