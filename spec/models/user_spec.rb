@@ -4,6 +4,8 @@ describe User do
 
   describe "#favorited(post)" do
 
+    before { Topic.delete_all }
+
     before do 
       @user = create(:user)
       @post = create(:post)

@@ -4,6 +4,8 @@ require 'rails_helper'
  
    describe "after_create" do
  
+    before { Comment.delete_all }
+
      before do
        @post = create(:post)
        @user = create(:user)

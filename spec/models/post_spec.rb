@@ -1,9 +1,10 @@
 require 'rails_helper'
 
 describe Post do
-
   describe "vote methods" do
  
+    before { Post.delete_all }
+
     before do
       @post = create(:post)  
       3.times { @post.votes.create(value: 1) }
