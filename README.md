@@ -2,4 +2,4 @@
 
 Made with my mentor Brittany Martin at [Bloc](http://bloc.io).
 
-Available on [Heroku](https://mighty-mountain-5066.herokuapp.com/).
+Available on [Heroku](https://quiet-ridge-6030.herokuapp.com/).
